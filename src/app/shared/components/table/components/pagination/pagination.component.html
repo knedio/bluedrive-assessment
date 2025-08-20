@@ -1,0 +1,22 @@
+<div class="flex justify-between items-center px-6 py-3 bg-gray-50 border-t">
+  <app-button
+    label="Prev"
+    variant="secondary"
+    size="sm"
+    [disabled]="pagination.page === 1"
+    (buttonClick)="pageChange.emit(pagination.page - 1)"
+  />
+
+  <span class="text-sm text-gray-600">
+    Page {{ pagination.total === 0 ? 0 : pagination.page }} of
+    {{ totalPages }}
+  </span>
+
+  <app-button
+    label="Next"
+    variant="secondary"
+    size="sm"
+    [disabled]="pagination.page === totalPages"
+    (buttonClick)="pageChange.emit(pagination.page + 1)"
+  />
+</div>

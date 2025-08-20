@@ -1,0 +1,32 @@
+<ng-template #valueTemplate let-value let-row="row">
+  <app-badge
+    [value]="value"
+    [color]="value >= 70 ? 'green' : value >= 30 ? 'yellow' : 'red'"
+  >
+  </app-badge>
+</ng-template>
+
+<div class="card relative">
+  <div class="px-6 py-4 border-b border-gray-200">
+    <h3 class="text-lg font-semibold text-gray-800">Generated Numbers</h3>
+    <p class="text-sm text-gray-600">
+      Total: {{ pagination$().total }} numbers
+    </p>
+  </div>
+
+  <app-table
+    [columns]="tableColumns$()"
+    [data]="randomIntegers$()"
+    [pagination]="pagination$()"
+    (pageChange)="onPageChange($event)"
+  ></app-table>
+
+  <div
+    *ngIf="loading$()"
+    class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center"
+  >
+    <div
+      class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
+    ></div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="px-6 py-4 border-b border-gray-200">
+    <h3 class="text-lg font-semibold text-gray-800">
+      Latest 20 Random Numbers
+    </h3>
+    <p class="text-sm text-gray-600">
+      "Real-time" 😂 line chart showing the most recent generated random numbers
+    </p>
+  </div>
+
+  <div class="p-6">
+    <div class="relative h-[400px]">
+      <canvas #chartCanvas></canvas>
+      <div
+        *ngIf="loading$()"
+        class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center"
+      >
+        <div
+          class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
